@@ -9,12 +9,9 @@ pipeline {
         }
         stage('Build docker') {
           steps {
-            sh '''#!/bin/bash
-                cd azure-vote/
-                docker images -a
-                docker build -t jenkins-pipeline .
-                cd ..
-                '''
+            sh 'cd azure-vote/'
+            sh 'docker images -a'
+            sh 'docker build -t jenkins-pipeline .'
           }
         }
     }
